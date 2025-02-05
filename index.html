@@ -359,27 +359,28 @@
             <div class="col-lg-6 col-md-8 col-sm-10 px-0">
                 <div class="contact-form bg-dark rounded p-5">
                     <div id="success"></div>
-                    <form name="sentMessage" id="contactForm" method="POST" netlify>
+                    <form name="sentMessage" id="contactForm" method="POST" data-netlify="true">
+                        <input type="hidden" name="form-name" value="sentMessage"/>
                         <div class="form-row">
                             <div class="col-md-6">
                                 <div class="control-group">
-                                    <input type="text" class="form-control bg-white border-0 p-4" id="name" placeholder="Your Name" required="required" data-validation-required-message="Please enter your name" />
+                                    <input type="text" name="name" class="form-control bg-white border-0 p-4" id="name" placeholder="Your Name" required="required" />
                                     <p class="help-block text-danger"></p>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="control-group">
-                                    <input type="email" class="form-control bg-white border-0 p-4" id="email" placeholder="Your Email" required="required" data-validation-required-message="Please enter your email" />
+                                    <input type="email" name="email" class="form-control bg-white border-0 p-4" id="email" placeholder="Your Email" required="required" />
                                     <p class="help-block text-danger"></p>
                                 </div>
                             </div>
                         </div>
                         <div class="control-group">
-                            <input type="text" class="form-control bg-white border-0 p-4" id="subject" placeholder="Your Mobile No." required="required" data-validation-required-message="Please enter a subject" />
+                            <input type="text" name="mobile" class="form-control bg-white border-0 p-4" id="subject" placeholder="Your Mobile No." required="required" />
                             <p class="help-block text-danger"></p>
                         </div>
                         <div class="control-group">
-                            <textarea class="form-control bg-white border-0 py-3 px-4" rows="5" id="message" placeholder="How can we help you" required="required" data-validation-required-message="Please enter your message"></textarea>
+                            <textarea name="message" class="form-control bg-white border-0 py-3 px-4" rows="5" id="message" placeholder="How can we help you" required="required"></textarea>
                             <p class="help-block text-danger"></p>
                         </div>
                         <div class="text-center">

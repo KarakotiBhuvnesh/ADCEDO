@@ -26,7 +26,7 @@
         }
     });
     $('.back-to-top').click(function () {
-        $('html, body').animate({scrollTop: 0}, 1500, 'easeInOutExpo');
+        $('html, body').animate({scrollTop: 0}, 1800, 'easeInOutExpo');
         return false;
     });
     // Portfolio isotope and filter
