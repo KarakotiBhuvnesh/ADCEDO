@@ -18,6 +18,9 @@
     <!-- Font Awesome -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css" rel="stylesheet">
 
+    <!-- EmailJS -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+
     <!-- Libraries Stylesheet -->
     <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
     <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
@@ -79,7 +82,7 @@
             <div class="col-lg-6 col-md-8 col-sm-10 px-0">
                 <div class="contact-form bg-dark rounded p-5">
                     <div id="success"></div>
-                    <form name="sentMessage" id="contactForm" method="POST" netlify>
+                    <form name="sentMessage" id="contactForm" method="POST" >
                         <div class="form-row">
                             <div class="col-md-6">
                                 <div class="control-group">
@@ -95,7 +98,7 @@
                             </div>
                         </div>
                         <div class="control-group">
-                            <input type="text" class="form-control bg-white border-0 p-4" id="subject" placeholder="Your Mobile No." required="required" data-validation-required-message="Please enter a subject" />
+                            <input type="text" class="form-control bg-white border-0 p-4" id="mobile" placeholder="Your Mobile No." required="required" data-validation-required-message="Please enter a subject" />
                             <p class="help-block text-danger"></p>
                         </div>
                         <div class="control-group">
@@ -111,6 +114,32 @@
         </div>
     </div>
     <!-- Contact End -->
+
+    <script>
+        (function() {
+            emailjs.init("V2NNHTAF13dh8cUjT"); // Replace with your Public Key
+        })();
+
+        document.getElementById("contactForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            emailjs.send("service_4ltnvuq", "template_l7q7u6g", {
+                from_name: document.getElementById("name").value,
+                from_email: document.getElementById("email").value,
+                message: document.getElementById("message").value,
+                mobile: document.getElementById("mobile").value
+            }).then(
+                function(response) {
+                    alert("Email sent successfully!");
+                    console.log("SUCCESS", response);
+                },
+                function(error) {
+                    alert("Failed to send email.");
+                    console.log("FAILED", error);
+                }
+            );
+        });
+    </script>
 
 
     <!-- Footer Start -->
