@@ -72,12 +72,15 @@
             <div class="col-12 px-0" style="height: 500px;">
                 <div class="position-relative h-100">
                     <iframe class="position-relative w-100 h-100"
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d37083.54624349886!2d77.05882843333333!3d28.61393931784693!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d03b2c134c04f%3A0x7ad70a58c3f87f1!2sDelhi%2C%20India!5e0!3m2!1sen!2sus!4v1675311354482!5m2!1sen!2sus"
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d28011.78479307334!2d77.32252054178892!3d28.59050373498426!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce56eb58903e1%3A0xaed9f52d2f5b3b71!2sSector%2056%2C%20Noida%2C%20Uttar%20Pradesh%20201301!5e0!3m2!1sen!2sin!4v1707051341234"
                         frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false"
                         tabindex="0"></iframe>
                 </div>
             </div>
         </div>
+
+
+        
         <div class="row mx-0 justify-content-center" style="margin-top: -200px;">
             <div class="col-lg-6 col-md-8 col-sm-10 px-0">
                 <div class="contact-form bg-dark rounded p-5">
@@ -116,30 +119,32 @@
     <!-- Contact End -->
 
     <script>
-        (function() {
-            emailjs.init("V2NNHTAF13dh8cUjT"); // Replace with your Public Key
-        })();
-
-        document.getElementById("contactForm").addEventListener("submit", function(event) {
-            event.preventDefault();
-
-            emailjs.send("service_4ltnvuq", "template_l7q7u6g", {
-                from_name: document.getElementById("name").value,
-                from_email: document.getElementById("email").value,
-                message: document.getElementById("message").value,
-                mobile: document.getElementById("mobile").value
-            }).then(
-                function(response) {
-                    alert("Email sent successfully!");
-                    console.log("SUCCESS", response);
-                },
-                function(error) {
-                    alert("Failed to send email.");
-                    console.log("FAILED", error);
-                }
-            );
+        document.addEventListener("DOMContentLoaded", function() {
+            emailjs.init("V2NNHTAF13dh8cUjT"); // Your Public Key
+    
+            document.getElementById("contactForm").addEventListener("submit", function(event) {
+                event.preventDefault(); // Prevent page reload
+    
+                emailjs.send("service_4ltnvuq", "template_l7q7u6g", {
+                    from_name: document.getElementById("name").value,
+                    from_email: document.getElementById("email").value,
+                    message: document.getElementById("message").value,
+                    mobile: document.getElementById("mobile").value
+                }).then(
+                    function(response) {
+                        console.log("Email sent:", response);
+                        alert("Email sent successfully!");
+                        document.getElementById("contactForm").reset(); // Clear form after success
+                    },
+                    function(error) {
+                        console.log("Email failed:", error);
+                        alert("Failed to send email. Please try again later.");
+                    }
+                );
+            });
         });
     </script>
+    
 
 
     <!-- Footer Start -->

@@ -393,28 +393,29 @@
     <!-- Contact End -->
 
     <script>
-        (function() {
-            emailjs.init("V2NNHTAF13dh8cUjT"); // Replace with your Public Key
-        })();
-
-        document.getElementById("contactForm").addEventListener("submit", function(event) {
-            event.preventDefault();
-
-            emailjs.send("service_4ltnvuq", "template_l7q7u6g", {
-                from_name: document.getElementById("name").value,
-                from_email: document.getElementById("email").value,
-                message: document.getElementById("message").value,
-                mobile: document.getElementById("mobile").value
-            }).then(
-                function(response) {
-                    alert("Email sent successfully!");
-                    console.log("SUCCESS", response);
-                },
-                function(error) {
-                    alert("Failed to send email.");
-                    console.log("FAILED", error);
-                }
-            );
+        document.addEventListener("DOMContentLoaded", function() {
+            emailjs.init("V2NNHTAF13dh8cUjT"); // Your Public Key
+    
+            document.getElementById("contactForm").addEventListener("submit", function(event) {
+                event.preventDefault(); // Prevent page reload
+    
+                emailjs.send("service_4ltnvuq", "template_l7q7u6g", {
+                    from_name: document.getElementById("name").value,
+                    from_email: document.getElementById("email").value,
+                    message: document.getElementById("message").value,
+                    mobile: document.getElementById("mobile").value
+                }).then(
+                    function(response) {
+                        console.log("Email sent:", response);
+                        alert("Email sent successfully!");
+                        document.getElementById("contactForm").reset(); // Clear form after success
+                    },
+                    function(error) {
+                        console.log("Email failed:", error);
+                        alert("Failed to send email. Please try again later.");
+                    }
+                );
+            });
         });
     </script>
 
