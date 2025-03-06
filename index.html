@@ -17,8 +17,7 @@
     <!-- Font Awesome -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css" rel="stylesheet">
 
-    <!-- EmailJS -->
-    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    
 
     <!-- Libraries Stylesheet -->
     <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
@@ -342,6 +341,11 @@
     <!-- Team End -->
 
 
+
+    <!-- EmailJS -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+
+    
     <!-- Contact Start -->
     <div class="container-fluid py-5 px-0">
         <div class="row mt-5 mx-0">
@@ -358,28 +362,27 @@
             <div class="col-lg-6 col-md-8 col-sm-10 px-0">
                 <div class="contact-form bg-dark rounded p-5">
                     <div id="success"></div>
-                    <form name="sentMessage" id="contactForm" method="POST">
-                        <input type="hidden" name="form-name" value="sentMessage"/>
+                    <form name="sentMessage" id="contactForm" method="POST" >
                         <div class="form-row">
                             <div class="col-md-6">
                                 <div class="control-group">
-                                    <input type="text" name="name" class="form-control bg-white border-0 p-4" id="name" placeholder="Your Name" required="required" />
+                                    <input type="text" class="form-control bg-white border-0 p-4" id="name" placeholder="Your Name" required="required" data-validation-required-message="Please enter your name" />
                                     <p class="help-block text-danger"></p>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="control-group">
-                                    <input type="email" name="email" class="form-control bg-white border-0 p-4" id="email" placeholder="Your Email" required="required" />
+                                    <input type="email" class="form-control bg-white border-0 p-4" id="email" placeholder="Your Email" required="required" data-validation-required-message="Please enter your email" />
                                     <p class="help-block text-danger"></p>
                                 </div>
                             </div>
                         </div>
                         <div class="control-group">
-                            <input type="text" name="mobile" class="form-control bg-white border-0 p-4" id="subject" placeholder="Your Mobile No." required="required" />
+                            <input type="text" class="form-control bg-white border-0 p-4" id="mobile" placeholder="Your Mobile No." required="required" data-validation-required-message="Please enter a subject" />
                             <p class="help-block text-danger"></p>
                         </div>
                         <div class="control-group">
-                            <textarea name="message" class="form-control bg-white border-0 py-3 px-4" rows="5" id="message" placeholder="How can we help you" required="required"></textarea>
+                            <textarea class="form-control bg-white border-0 py-3 px-4" rows="5" id="message" placeholder="How can we help you" required="required" data-validation-required-message="Please enter your message"></textarea>
                             <p class="help-block text-danger"></p>
                         </div>
                         <div class="text-center">
